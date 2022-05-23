@@ -25,7 +25,7 @@ def new_game(request):
         'l4': chosen.l4,
         'l5': chosen.l5,
         'dct': dct,
-        'name': chosen.name
+        'word': chosen.name
     }
 
     return Response(data, status=status.HTTP_200_OK)

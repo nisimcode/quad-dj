@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('QUAD_DJ_SEC_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['wordwhile-d.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -151,6 +151,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://wordwhile.herokuapp.com"
 ]
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

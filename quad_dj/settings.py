@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('QUAD_DJ_SEC_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['wordwhile-d.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['https://wordwhile-d.herokuapp.com', 'http://127.0.0.1']
 
 
 # Application definition
@@ -130,7 +130,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # The URL to use when referring to static files (where they will be served from)
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

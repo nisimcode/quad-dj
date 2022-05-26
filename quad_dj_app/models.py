@@ -13,7 +13,7 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class Word(BaseModel):
+class Word(BaseModel):  # The words that can be chosen to be guessed
     name = models.CharField(max_length=16)
     l1 = models.CharField(max_length=1)
     l2 = models.CharField(max_length=1)
@@ -25,6 +25,18 @@ class Word(BaseModel):
 
     class Meta:
         db_table = "words"
+        ordering = ("name",)
+
+    def __str__(self):
+        return self.name
+
+
+class Vocab(BaseModel):  # All the words in the vocabulary to be checked against
+    name = models.CharField(max_length=16)
+    # length = models.PositiveIntegerField(validators=[MinValue(3), MaxValue(5)])
+
+    class Meta:
+        db_table = "vocabs"
         ordering = ("name",)
 
     def __str__(self):

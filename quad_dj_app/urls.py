@@ -4,7 +4,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.new_game)
+    path('', views.new_game),
+    path('vocabulary', views.vocabulary)
     # path('token', obtain_auth_token),
     # path('signup', views.signup),
     # path("profiles", views.profiles),

@@ -160,4 +160,5 @@ cython_debug/
 #
 eng_dict.py
 eng_words.csv
+eng_vocabs.csv
 english_dictionary.json

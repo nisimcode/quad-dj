@@ -57,7 +57,6 @@ class Note(BaseModel):
         return self.text
 
 
-
 class Profile(BaseModel):
     user = models.OneToOneField(User, on_delete=models.PROTECT, primary_key=True)
     points = models.PositiveIntegerField(default=0)

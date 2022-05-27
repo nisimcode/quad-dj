@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from quad_dj_app.models import Word, Vocab
+from quad_dj_app.models import Word, Vocab, Note
 
 
 @api_view(['GET'])
@@ -15,6 +15,17 @@ def vocabulary(request):
         vocab.append(obj.name)
 
     return Response(vocab, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def notes(request):
+    Note.objects.create(
+        # user_id=request.data['user'],
+        info=request.data['info'] if len(request.data['info']) else "",
+        text=request.data['text'],
+        spam=(len(set(request.data['text'])) == 1) or (len(request.data['text']) < 4)
+    )
+    return Response(status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET', 'POST'])

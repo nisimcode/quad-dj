@@ -43,6 +43,21 @@ class Vocab(BaseModel):  # All the words in the vocabulary to be checked against
         return self.name
 
 
+class Note(BaseModel):
+    # user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True)
+    info = models.CharField(max_length=256)
+    text = models.CharField(max_length=256)
+    spam = models.BooleanField()
+
+    class Meta:
+        db_table = "notes"
+        ordering = ("created_at",)
+
+    def __str__(self):
+        return self.text
+
+
+
 class Profile(BaseModel):
     user = models.OneToOneField(User, on_delete=models.PROTECT, primary_key=True)
     points = models.PositiveIntegerField(default=0)

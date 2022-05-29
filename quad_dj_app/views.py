@@ -23,7 +23,7 @@ def notes(request):
         # user_id=request.data['user'],
         info=request.data['info'] if len(request.data['info']) else "",
         text=request.data['text'],
-        spam=(len(set(request.data['text'])) == 1) or (len(request.data['text']) < 4)
+        spam=(len(set(request.data['text'])) < 3) or (len(request.data['text']) < 10)
     )
     return Response(status=status.HTTP_201_CREATED)
 
